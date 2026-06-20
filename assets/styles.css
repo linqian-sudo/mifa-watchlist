@@ -168,6 +168,10 @@ button:hover { background: #dcebf7; }
   padding: 18px;
 }
 
+.chart-panel {
+  margin-bottom: 16px;
+}
+
 .panel-head {
   display: flex;
   justify-content: space-between;
@@ -189,6 +193,103 @@ button:hover { background: #dcebf7; }
 .badge.warn { color: var(--amber); background: var(--soft-amber); border-color: #ead3a5; }
 .badge.bad { color: var(--red); background: var(--soft-red); border-color: #efc5c1; }
 .badge.neutral { color: var(--muted); background: #f4f7fa; }
+
+.subtle {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+
+.chart {
+  width: 100%;
+  min-height: 320px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend i {
+  width: 22px;
+  height: 3px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.close-line { background: var(--blue); }
+.ma10-line { background: var(--green); }
+.ma20-line { background: var(--amber); }
+
+.trend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.trend-grid div {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f7fafc;
+}
+
+.trend-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.trend-grid strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.decision-box {
+  border-left: 4px solid var(--blue);
+  background: #f7fafc;
+  border-radius: 0 8px 8px 0;
+  padding: 13px 14px;
+  margin-bottom: 12px;
+}
+
+.decision-box strong {
+  display: block;
+  color: var(--blue);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.rule-list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.rule-list li {
+  margin: 7px 0;
+}
 
 .bars {
   display: grid;
@@ -333,6 +434,8 @@ footer {
   .metric-grid { grid-template-columns: 1fr; }
   .metric.main { grid-column: auto; }
   .allocation { grid-template-columns: 1fr; }
+  .trend-grid { grid-template-columns: 1fr; }
+  .chart { min-height: 230px; }
   table { display: block; overflow-x: auto; white-space: nowrap; }
   .panel { padding: 14px; }
 }

@@ -10,14 +10,14 @@
   <main class="shell">
     <header class="hero">
       <div>
-        <div class="eyebrow">688582.SH · 芯动联科 · 每日行情监控</div>
+        <div class="eyebrow">688582.SH · 芯动联科 · 每日行情与操作纪律</div>
         <h1>芯动联科长期投资看板</h1>
-        <p class="lead">把“好公司”与“好买点”分开跟踪：行情每天更新，估值自动重算，仓位纪律围绕业绩恢复、解禁压力和产品量产证据展开。</p>
+        <p class="lead">把“好公司”与“好买点”分开跟踪：行情每天更新，走势图自动重算，操作建议按趋势、关键点和仓位纪律给出。</p>
       </div>
       <div class="status-card">
         <span class="status-label">当前投资姿态</span>
-        <strong id="actionPosture">等待验证 / 分批观察</strong>
-        <small>不构成投资建议，仅作研究跟踪。</small>
+        <strong id="actionPosture">等待数据加载</strong>
+        <small>研究跟踪信号，不构成收益承诺。</small>
       </div>
     </header>
 
@@ -46,7 +46,7 @@
       <article class="metric">
         <span>PE(TTM)</span>
         <strong id="peTtm">--</strong>
-        <small id="peSource">行情源口径</small>
+        <small>行情源口径</small>
       </article>
       <article class="metric">
         <span>PB</span>
@@ -62,6 +62,51 @@
         <span>52 周区间</span>
         <strong id="range52w">--</strong>
         <small id="rangePosition">--</small>
+      </article>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="panel-head">
+        <div>
+          <h2>价格走势图</h2>
+          <p class="subtle">收盘价、10 日均线、20 日均线；数据来自公开日 K 线，自动更新。</p>
+        </div>
+        <span id="trendBadge" class="badge neutral">等待计算</span>
+      </div>
+      <div id="priceChart" class="chart"></div>
+      <div class="chart-legend">
+        <span><i class="close-line"></i>收盘价</span>
+        <span><i class="ma10-line"></i>MA10</span>
+        <span><i class="ma20-line"></i>MA20</span>
+        <span id="chartRange">--</span>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>当前走势分析</h2>
+          <span id="setupBadge" class="badge warn">待计算</span>
+        </div>
+        <div class="trend-grid">
+          <div><span>5 日涨跌</span><strong id="ret5">--</strong></div>
+          <div><span>20 日涨跌</span><strong id="ret20">--</strong></div>
+          <div><span>MA10 / MA20</span><strong id="maState">--</strong></div>
+          <div><span>20 日关键区间</span><strong id="pivotRange">--</strong></div>
+        </div>
+        <p id="trendRead" class="readout">正在根据历史走势生成分析。</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>利弗莫尔式操作建议</h2>
+          <span id="livermoreBadge" class="badge neutral">规则信号</span>
+        </div>
+        <div class="decision-box">
+          <strong id="livermoreAction">等待计算</strong>
+          <p id="livermoreReason">看板会依据关键点突破、趋势确认、回撤止损和分批加码原则生成规则化建议。</p>
+        </div>
+        <ul id="livermoreRules" class="rule-list"></ul>
       </article>
     </section>
 
@@ -94,10 +139,10 @@
           <span class="badge neutral">50 万计划</span>
         </div>
         <div class="allocation">
-          <div><b>20%-30%</b><span>观察仓</span><small>解禁压力释放后再启动</small></div>
+          <div><b>20%-30%</b><span>观察仓</span><small>只在关键点确认后试探</small></div>
           <div><b>30%-40%</b><span>验证仓</span><small>Q2/Q3 收入和扣非恢复</small></div>
-          <div><b>20%-30%</b><span>进攻仓</span><small>IMU/三轴陀螺量产兑现</small></div>
-          <div><b>10%-20%</b><span>现金</span><small>留给波动和纠错</small></div>
+          <div><b>20%-30%</b><span>进攻仓</span><small>盈利后顺势加码，不摊低成本</small></div>
+          <div><b>10%-20%</b><span>现金</span><small>留给波动、回撤和纠错</small></div>
         </div>
       </article>
     </section>
@@ -152,8 +197,8 @@
     </section>
 
     <footer>
-      <p>数据源：腾讯行情接口经 GitHub Actions 每个交易日收盘后更新；若接口不可用，看板保留最近一次成功数据。</p>
-      <p>最后页面版本：2026-06-20。公开行情可能延迟或缺失，所有结论需结合公告与个人风险承受能力再判断。</p>
+      <p>数据源：腾讯行情快照与东方财富公开日 K 线，经 GitHub Actions 每个交易日收盘后更新；若接口不可用，看板保留最近一次成功数据。</p>
+      <p>利弗莫尔规则仅用于纪律化跟踪，不等同于个性化投资建议。重大资金操作仍需结合账户风险、流动性、公告和个人投资期限判断。</p>
     </footer>
   </main>
   <script src="assets/app.js"></script>
