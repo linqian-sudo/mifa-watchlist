@@ -2,7 +2,7 @@
 
 这是一个多标的 A 股自选股网页看板，用于跟踪行情、图表走势、关键点信号和风险预警。
 
-线上看板使用 GitHub Pages 发布，数据通过 GitHub Actions 在交易日收盘后自动更新。本地更新时会优先尝试连接富途 OpenD，无法连接时自动切换到公开行情兜底。
+线上看板使用 GitHub Pages 发布。本地更新时会优先连接富途 OpenD；GitHub 托管环境无法访问你电脑上的 OpenD，因此行情更新建议在本机完成后推送到 GitHub。
 
 ## 功能
 
@@ -23,7 +23,7 @@
 - `data/watchlist-data.json`：自动生成的行情、K 线、分析和预警数据。
 - `scripts/update-market-data.mjs`：批量更新行情与日 K 线，优先使用富途 OpenD，公开行情作为备用源。
 - `scripts/futu_fetch_watchlist.py`：富途 OpenD 数据抓取助手，默认连接 `127.0.0.1:11111`。
-- `.github/workflows/update-market-data.yml`：交易日自动更新，也支持手动触发。
+- `.github/workflows/update-market-data.yml`：保留手动触发入口；未启用 GitHub 托管定时更新，避免覆盖本机富途 OpenD 数据。
 
 ## 添加标的
 
@@ -58,6 +58,8 @@ node scripts/update-market-data.mjs
 ```
 
 如果 OpenD 没有启动，脚本会提示跳过富途源并使用公开行情兜底。
+
+更新完成后提交并推送，GitHub Pages 会发布最新看板。
 
 ## 左上角米法图片
 
